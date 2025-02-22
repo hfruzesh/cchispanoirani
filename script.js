@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
     currentLang = currentLang === "es" ? "fa" : "es";
     langSwitchBtn.innerHTML = currentLang === "es" ? "Switch to Farsi" : "Switch to Spanish";
     updateLanguage(currentLang);
-    updateHeroOverlayButton(realIndex - 1);
+    updateHeroOverlayButton();
   });
   
-  /* Hamburger Menu Toggle & Animation */
+  /* Hamburger Menu Toggle */
   const hamburger = document.getElementById("hamburger");
   const mobileNav = document.getElementById("mobile-nav");
   hamburger.addEventListener("click", function () {
@@ -32,7 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const carouselImagesContainer = document.querySelector(".carousel-images");
   let images = carouselImagesContainer.querySelectorAll("img");
   
-  // Clone first and last images for infinite effect
+  // Remove 04.webp if present
+  images = Array.from(images).filter(img => !img.src.includes("04.webp"));
+  // Clear container and reinsert filtered images
+  carouselImagesContainer.innerHTML = "";
+  images.forEach(img => carouselImagesContainer.appendChild(img));
+  
+  // Now clone first and last images for infinite effect
+  images = carouselImagesContainer.querySelectorAll("img");
   const firstClone = images[0].cloneNode(true);
   const lastClone = images[images.length - 1].cloneNode(true);
   carouselImagesContainer.appendChild(firstClone);
@@ -47,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // Set initial index to 1 (first real image) WITHOUT animation
   let currentIndex = 1;
-  let realIndex = 1; // for dynamic overlay button text
   carouselImagesContainer.style.transition = "none";
   carouselImagesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
   void carouselImagesContainer.offsetWidth;
@@ -76,7 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   
-  // Define menu options for dynamic overlay button (for real images)
+  /* DYNAMIC HERO OVERLAY BUTTON */
+  const heroOverlayButton = document.querySelector(".hero-overlay-button");
   const menuOptions = [
     { es: "Sobre Nosotros", fa: "درباره ما", link: "sobre-nosotros.html" },
     { es: "Recursos",       fa: "منابع",     link: "recursos.html" },
@@ -86,21 +93,20 @@ document.addEventListener("DOMContentLoaded", function () {
     { es: "Blog",           fa: "وبلاگ",     link: "blog.html" }
   ];
   
-  const heroOverlayButton = document.querySelector(".hero-overlay-button");
-  
-  function updateHeroOverlayButton(realIdx) {
-    if (heroOverlayButton) {
-      const option = menuOptions[realIdx % menuOptions.length];
-      heroOverlayButton.setAttribute("href", option.link);
-      const textSpan = heroOverlayButton.querySelector(".hero-btn-text");
-      textSpan.innerHTML = currentLang === "es" ? option.es : option.fa;
-      heroOverlayButton.style.transition = "opacity 0.5s ease";
-      heroOverlayButton.style.opacity = "1";
-    }
+  function updateHeroOverlayButton() {
+    let realIndex = currentIndex;
+    if (currentIndex === 0) realIndex = totalImages - 2;
+    if (currentIndex === totalImages - 1) realIndex = 1;
+    const option = menuOptions[(realIndex - 1) % menuOptions.length];
+    heroOverlayButton.setAttribute("href", option.link);
+    heroOverlayButton.querySelector(".hero-btn-text").innerHTML =
+      currentLang === "es" ? option.es : option.fa;
+    heroOverlayButton.style.transition = "opacity 0.5s ease";
+    heroOverlayButton.style.opacity = "1";
   }
-  updateHeroOverlayButton(realIndex - 1);
+  updateHeroOverlayButton();
   
-  // Smooth slide transition for the carousel using container transform
+  /* GO TO SLIDE */
   function goToSlide(newIndex, direction = "next") {
     heroOverlayButton.style.opacity = "0";
     currentIndex = newIndex;
@@ -118,10 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
         currentIndex = 1;
         carouselImagesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
       }
-      realIndex = currentIndex;
-      if (currentIndex === 0) realIndex = totalImages - 2;
-      if (currentIndex === totalImages - 1) realIndex = 1;
-      updateHeroOverlayButton(realIndex - 1);
+      updateHeroOverlayButton();
       carouselImagesContainer.removeEventListener("transitionend", handler);
     });
   }

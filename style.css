@@ -41,19 +41,30 @@ header {
 .language-switcher {
   margin-bottom: 10px;
 }
-#lang-switch {
+/* Unified .btn style */
+.btn {
   background-color: #C70039;
   color: #fff;
   border: none;
-  padding: 8px 12px;
+  padding: 8px 16px;
   border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
-#lang-switch:hover {
+.btn:hover {
   background-color: #900C3F;
+  transform: translateY(-1px);
 }
-/* Desktop Navigation */
+.center-link {
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
+}
+
 nav.desktop-nav {
   display: block;
 }
@@ -210,32 +221,25 @@ nav.desktop-nav ul li a {
   transition: background 0.2s ease-in-out;
 }
 
-/* NEW HERO OVERLAY BUTTON */
+/* HERO OVERLAY BUTTON (text-only, styled like translate button) */
 .hero-overlay-button {
   position: absolute;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
+  pointer-events: auto;
   text-decoration: none;
-  display: flex;          /* Ensure horizontal alignment */
+  display: flex;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;    /* Prevent wrapping */
+  white-space: nowrap;
   opacity: 1;
   transition: opacity 0.5s ease;
-  pointer-events: auto;
-}
-.hero-btn-icon {
-  vertical-align: middle;
-  width: 36px;  /* increased 20% from 30px */
-  height: auto;
-  margin-right: 8px;  /* increased margin for 20% spacing */
 }
 .hero-btn-text {
-  vertical-align: middle;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.44rem;  /* increased 20% from 1.2rem */
+  font-size: 1.44rem;  /* 20% increase from 1.2rem */
   color: #fff;
   white-space: nowrap;
   line-height: 1;
@@ -258,14 +262,45 @@ nav.desktop-nav ul li a {
   font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
   margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-/* Featured Event Image */
-.featured-event img {
+/* FEATURED EVENT SECTION with side pattern */
+.featured-event {
+  position: relative;
+  padding: 20px 0;
+  text-align: center;
+}
+.featured-event-container {
+  position: relative;
+  display: inline-block;
+  max-width: 80%; /* Event image is now smaller to allow side patterns */
+  margin: 0 auto;
+}
+.featured-event-container .event-image {
   width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.featured-event::before,
+.featured-event::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 80%;
+  background: url("images/event/eventpat01.png") no-repeat center center;
+  background-size: contain;
+  z-index: 2;
+}
+.featured-event::before {
+  left: calc(50% - 40% - 70px); /* Adjusted to position pattern on left of image */
+}
+.featured-event::after {
+  right: calc(50% - 40% - 70px); /* Adjusted to position pattern on right of image */
 }
 
 /* NEW BUTTON SECTION STYLING */
@@ -279,7 +314,7 @@ nav.desktop-nav ul li a {
   height: auto;
 }
 
-/* Content Sections */
+/* SECTION HEADINGS & POEM STYLING */
 section.welcome,
 section.about,
 section.mission,
@@ -312,28 +347,59 @@ section p {
   padding: 0 20px;
 }
 
-/* Footer & Page Breaks */
+/* FOOTER & PAGE BREAKS */
+.page-break {
+  width: 100%;
+  height: 20px;  /* Enlarged from 10px to 20px */
+  margin: 10px 0;
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  background-image: url("images/footer/pat03.png");
+}
+.non-hero .page-break:first-of-type {
+  margin-top: 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #f0f0f0;
+  color: #333;
+  text-align: left;
+}
+.footer-section {
+  max-width: 300px;
+  margin: 0 10px;
+}
+.footer-section h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #C70039;
+}
+.footer-section p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #333;
+}
+
 footer {
   background-color: #f7f7f7;
   padding: 30px 20px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
 }
-.page-break {
-  width: 100%;
-  height: 10px;
-  margin: 10px 0;
-  background-repeat: repeat-x;
-  background-size: auto 100%;
-  background-image: url("images/footer/pat01.webp");
+
+/* UTILITY */
+.center-link {
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
 }
 
-/* Bring the first page-break closer to the hero carousel */
-.non-hero .page-break:first-of-type {
-  margin-top: 0;
-}
-
-/* Responsive Styles */
+/* RESPONSIVE STYLES */
 @media (max-width: 1024px) {
   nav.desktop-nav {
     display: none;
@@ -361,12 +427,13 @@ footer {
   .hero-content h1 {
     font-size: 1.8rem;
   }
-  .featured-event img {
-    height: auto;
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .button-section img {
-    max-width: 100px;
-    height: auto;
+  .footer-section {
+    max-width: 100%;
+    margin-bottom: 20px;
   }
   .hero,
   .hero-carousel,
@@ -382,28 +449,10 @@ footer {
   .pink-bg {
     height: 300px;
   }
-  /* Expanded Footer Section */
-.footer-content {
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-  background-color: #eaeaea;
-  color: #333;
-  text-align: left;
 }
-.footer-section {
-  max-width: 300px;
-}
-.footer-section h3 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #C70039;
-}
-.footer-section p {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin: 0;
-  color: #333;
-}
+
+/* KEYFRAMES */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
