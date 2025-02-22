@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     currentLang = currentLang === "es" ? "fa" : "es";
     langSwitchBtn.innerHTML = currentLang === "es" ? "Switch to Farsi" : "Switch to Spanish";
     updateLanguage(currentLang);
-    updateHeroMenuText(currentIndex);
+    updateHeroOverlayButton(realIndex - 1);
   });
   
   /* Hamburger Menu Toggle & Animation */
@@ -28,14 +28,55 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileNav.classList.toggle("open");
   });
   
-  /* 3D CAROUSEL EFFECT (Manual Navigation Only) */
-  const carouselImages = document.querySelectorAll(".carousel-images img");
-  const pinkBg = document.querySelector(".pink-bg");
-  const heroMenuText = document.querySelector(".hero-menu-text");
-  let currentIndex = 0;
-  const totalImages = carouselImages.length;
+  /* HERO CAROUSEL: Infinite Swipe & Smooth Slide Transition */
+  const carouselImagesContainer = document.querySelector(".carousel-images");
+  let images = carouselImagesContainer.querySelectorAll("img");
   
-  // Define menu options per slide (including text and link) for Spanish and Farsi
+  // Clone first and last images for infinite effect
+  const firstClone = images[0].cloneNode(true);
+  const lastClone = images[images.length - 1].cloneNode(true);
+  carouselImagesContainer.appendChild(firstClone);
+  carouselImagesContainer.insertBefore(lastClone, images[0]);
+  
+  // Update images NodeList and total count (including clones)
+  images = carouselImagesContainer.querySelectorAll("img");
+  const totalImages = images.length;
+  
+  // Set container width so that each image is 100vw wide
+  carouselImagesContainer.style.width = `${totalImages * 100}vw`;
+  
+  // Set initial index to 1 (first real image) WITHOUT animation
+  let currentIndex = 1;
+  let realIndex = 1; // for dynamic overlay button text
+  carouselImagesContainer.style.transition = "none";
+  carouselImagesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+  void carouselImagesContainer.offsetWidth;
+  carouselImagesContainer.style.transition = "transform 0.5s ease-in-out";
+  
+  // Swipe detection variables
+  const heroCarousel = document.querySelector(".hero-carousel");
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const swipeThreshold = 50;
+  
+  heroCarousel.addEventListener("touchstart", function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  
+  heroCarousel.addEventListener("touchend", function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+  
+  function handleSwipe() {
+    if (touchEndX < touchStartX - swipeThreshold) {
+      goToSlide(currentIndex + 1, "next");
+    } else if (touchEndX > touchStartX + swipeThreshold) {
+      goToSlide(currentIndex - 1, "prev");
+    }
+  }
+  
+  // Define menu options for dynamic overlay button (for real images)
   const menuOptions = [
     { es: "Sobre Nosotros", fa: "درباره ما", link: "sobre-nosotros.html" },
     { es: "Recursos",       fa: "منابع",     link: "recursos.html" },
@@ -45,64 +86,44 @@ document.addEventListener("DOMContentLoaded", function () {
     { es: "Blog",           fa: "وبلاگ",     link: "blog.html" }
   ];
   
-  function updateHeroMenuText(index) {
-    if (heroMenuText) {
-      const option = menuOptions[index % menuOptions.length];
-      heroMenuText.innerHTML = currentLang === "es" ? option.es : option.fa;
-      heroMenuText.setAttribute("href", option.link);
-      // Animate using same scale/opacity transition as hero images:
-      heroMenuText.style.transition = "transform 0.5s ease, opacity 0.5s ease";
-      heroMenuText.style.transform = "scale(0.8)";
-      heroMenuText.style.opacity = "0";
-      setTimeout(() => {
-        heroMenuText.style.transform = "scale(1)";
-        heroMenuText.style.opacity = "1";
-      }, 100);
+  const heroOverlayButton = document.querySelector(".hero-overlay-button");
+  
+  function updateHeroOverlayButton(realIdx) {
+    if (heroOverlayButton) {
+      const option = menuOptions[realIdx % menuOptions.length];
+      heroOverlayButton.setAttribute("href", option.link);
+      const textSpan = heroOverlayButton.querySelector(".hero-btn-text");
+      textSpan.innerHTML = currentLang === "es" ? option.es : option.fa;
+      heroOverlayButton.style.transition = "opacity 0.5s ease";
+      heroOverlayButton.style.opacity = "1";
     }
   }
-  updateHeroMenuText(0);
+  updateHeroOverlayButton(realIndex - 1);
   
+  // Smooth slide transition for the carousel using container transform
   function goToSlide(newIndex, direction = "next") {
-    let nextIndex = newIndex;
-    if (newIndex >= totalImages) nextIndex = 0;
-    if (newIndex < 0) nextIndex = totalImages - 1;
+    heroOverlayButton.style.opacity = "0";
+    currentIndex = newIndex;
+    carouselImagesContainer.style.transition = "transform 0.5s ease-in-out";
+    carouselImagesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
     
-    const currentSlide = carouselImages[currentIndex];
-    const nextSlide = carouselImages[nextIndex];
-    
-    if (direction === "next") {
-      nextSlide.style.transform = "scale(0.8) translateX(50px) rotateY(-15deg)";
-    } else {
-      nextSlide.style.transform = "scale(0.8) translateX(-50px) rotateY(15deg)";
-    }
-    nextSlide.style.opacity = "0";
-    nextSlide.classList.add("active");
-    
-    void nextSlide.offsetWidth;
-    
-    if (direction === "next") {
-      currentSlide.style.transform = "scale(0.8) translateX(-50px) rotateY(15deg)";
-    } else {
-      currentSlide.style.transform = "scale(0.8) translateX(50px) rotateY(-15deg)";
-    }
-    currentSlide.style.opacity = "0";
-    
-    pinkBg.classList.add("flash-white");
-    setTimeout(() => {
-      pinkBg.classList.remove("flash-white");
-    }, 200);
-    
-    setTimeout(() => {
-      nextSlide.style.transform = "scale(1) translateX(0) rotateY(0deg)";
-      nextSlide.style.opacity = "1";
-      setTimeout(() => {
-        currentSlide.classList.remove("active");
-        currentSlide.style.transform = "";
-        currentSlide.style.opacity = "";
-        currentIndex = nextIndex;
-        updateHeroMenuText(currentIndex);
-      }, 500);
-    }, 50);
+    carouselImagesContainer.addEventListener("transitionend", function handler() {
+      if (currentIndex === 0) {
+        carouselImagesContainer.style.transition = "none";
+        currentIndex = totalImages - 2;
+        carouselImagesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+      }
+      if (currentIndex === totalImages - 1) {
+        carouselImagesContainer.style.transition = "none";
+        currentIndex = 1;
+        carouselImagesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+      }
+      realIndex = currentIndex;
+      if (currentIndex === 0) realIndex = totalImages - 2;
+      if (currentIndex === totalImages - 1) realIndex = 1;
+      updateHeroOverlayButton(realIndex - 1);
+      carouselImagesContainer.removeEventListener("transitionend", handler);
+    });
   }
   
   const nextBtn = document.querySelector(".next-btn");
