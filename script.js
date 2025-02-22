@@ -3,14 +3,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const langSwitchBtn = document.getElementById("lang-switch");
   let currentLang = "es";
   
+  // Updated updateLanguage() function with fade effect
   function updateLanguage(lang) {
     const translateElements = document.querySelectorAll(".translate");
     translateElements.forEach((el) => {
-      el.innerHTML = lang === "es"
-        ? el.getAttribute("data-es")
-        : el.getAttribute("data-fa");
+      // Fade out the element
+      el.style.transition = "opacity 0.3s ease";
+      el.style.opacity = "0";
+      // After fade-out, update the text and fade back in
+      setTimeout(() => {
+        el.innerHTML = lang === "es" ? el.getAttribute("data-es") : el.getAttribute("data-fa");
+        el.style.opacity = "1";
+      }, 300);
     });
   }
+  
   updateLanguage(currentLang);
   
   langSwitchBtn.addEventListener("click", function () {
@@ -34,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // Remove 04.webp if present
   images = Array.from(images).filter(img => !img.src.includes("04.webp"));
-  // Clear container and reinsert filtered images
   carouselImagesContainer.innerHTML = "";
   images.forEach(img => carouselImagesContainer.appendChild(img));
   
