@@ -1,5 +1,21 @@
+/* Load the Shakäste font from GitHub raw URL */
+@font-face {
+  font-family: 'Shakaste';
+  src: url('https://raw.githubusercontent.com/hfruzesh/cchispanoirani/main/fonts/Dima%20Shekasteh%202%20Free.ttf')
+    format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply Shakaste only for poetry sections when Farsi is active */
+body.farsi .poem-section,
+body.farsi blockquote {
+  font-family: 'Shakaste', 'Tahoma', sans-serif;
+}
+
 /* RESET */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -20,8 +36,12 @@ body {
   animation: fadeIn 0.75s ease-in forwards;
 }
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Strong styling */
@@ -158,7 +178,7 @@ nav.desktop-nav ul li a {
   position: relative;
   display: flex;
   height: 700px;
-  /* Width will be set dynamically via JS */
+  /* Width set dynamically via JS */
   transition: transform 0.5s ease-in-out;
   overflow: hidden;
 }
@@ -173,7 +193,7 @@ nav.desktop-nav ul li a {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
   border: none;
   padding: 12px;
@@ -184,7 +204,7 @@ nav.desktop-nav ul li a {
   transition: background-color 0.3s ease;
 }
 .carousel-btn:hover {
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 .prev-btn {
   left: 20px;
@@ -217,7 +237,11 @@ nav.desktop-nav ul li a {
   left: 0;
   width: 100vw;
   height: 100%;
-  background: linear-gradient(to bottom right, rgba(199,0,57,0.3), rgba(144,12,63,0.3));
+  background: linear-gradient(
+    to bottom right,
+    rgba(199, 0, 57, 0.3),
+    rgba(144, 12, 63, 0.3)
+  );
   transition: background 0.2s ease-in-out;
 }
 
@@ -237,17 +261,17 @@ nav.desktop-nav ul li a {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
+.hero-overlay-button:focus,
+.hero-overlay-button:active {
+  outline: none;
+  margin: 0;
+}
 .hero-btn-text {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.44rem;  /* 20% increase from 1.2rem */
+  font-size: 1.44rem;
   color: #fff;
   white-space: nowrap;
   line-height: 1;
-}
-
-/* Remove old hero-menu-text if present */
-.hero-menu-text {
-  display: none;
 }
 
 /* HERO CONTENT */
@@ -262,7 +286,7 @@ nav.desktop-nav ul li a {
   font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
   margin-bottom: 20px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* FEATURED EVENT SECTION with side pattern */
@@ -274,7 +298,7 @@ nav.desktop-nav ul li a {
 .featured-event-container {
   position: relative;
   display: inline-block;
-  max-width: 80%; /* Event image is now smaller to allow side patterns */
+  max-width: 80%;
   margin: 0 auto;
 }
 .featured-event-container .event-image {
@@ -297,10 +321,10 @@ nav.desktop-nav ul li a {
   z-index: 2;
 }
 .featured-event::before {
-  left: calc(50% - 40% - 70px); /* Adjusted to position pattern on left of image */
+  left: calc(50% - 40% - 70px);
 }
 .featured-event::after {
-  right: calc(50% - 40% - 70px); /* Adjusted to position pattern on right of image */
+  right: calc(50% - 40% - 70px);
 }
 
 /* NEW BUTTON SECTION STYLING */
@@ -350,7 +374,7 @@ section p {
 /* FOOTER & PAGE BREAKS */
 .page-break {
   width: 100%;
-  height: 20px;  /* Enlarged from 10px to 20px */
+  height: 20px;
   margin: 10px 0;
   background-repeat: repeat-x;
   background-size: auto 100%;
@@ -453,6 +477,10 @@ footer {
 
 /* KEYFRAMES */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
