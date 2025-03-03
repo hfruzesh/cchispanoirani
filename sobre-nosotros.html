@@ -4,24 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sobre Nosotros - Comunidad Iraní en España</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- HEADER -->
     <header>
       <div class="language-switcher">
-        <button id="lang-switch" data-lang="es">Switch to Farsi</button>
+        <button id="lang-switch" class="btn" data-lang="es">Switch to Farsi</button>
       </div>
       <nav class="desktop-nav">
         <ul>
-          <li><a href="index.html" class="translate" data-es="Inicio" data-fa="صفحه اصلی">Inicio</a></li>
-          <li><a href="sobre-nosotros.html" class="translate active-link" data-es="Sobre Nosotros" data-fa="درباره ما">Sobre Nosotros</a></li>
-          <li><a href="recursos.html" class="translate" data-es="Recursos" data-fa="منابع">Recursos</a></li>
-          <li><a href="eventos.html" class="translate" data-es="Eventos" data-fa="رویدادها">Eventos</a></li>
-          <li><a href="comunidad.html" class="translate" data-es="Comunidad" data-fa="جامعه">Comunidad</a></li>
-          <li><a href="contacto.html" class="translate" data-es="Contáctanos" data-fa="تماس با ما">Contáctanos</a></li>
-          <li><a href="blog.html" class="translate" data-es="Blog" data-fa="وبلاگ">Blog</a></li>
+          <li>
+            <a href="index.html" class="translate" data-es="Inicio" data-fa="صفحه اصلی">Inicio</a>
+          </li>
+          <li>
+            <a href="sobre-nosotros.html" class="translate active-link" data-es="Sobre Nosotros" data-fa="درباره ما">Sobre Nosotros</a>
+          </li>
+          <li>
+            <a href="recursos.html" class="translate" data-es="Recursos" data-fa="منابع">Recursos</a>
+          </li>
+          <li>
+            <a href="eventos.html" class="translate" data-es="Eventos" data-fa="رویدادها">Eventos</a>
+          </li>
+          <li>
+            <a href="comunidad.html" class="translate" data-es="Comunidad" data-fa="جامعه">Comunidad</a>
+          </li>
+          <li>
+            <a href="contacto.html" class="translate" data-es="Contáctanos" data-fa="تماس با ما">Contáctanos</a>
+          </li>
+          <li>
+            <a href="blog.html" class="translate" data-es="Blog" data-fa="وبلاگ">Blog</a>
+          </li>
         </ul>
       </nav>
       <div class="hamburger" id="hamburger">
@@ -32,29 +49,55 @@
     </header>
     <nav class="mobile-nav" id="mobile-nav">
       <ul>
-        <li><a href="index.html" class="translate active-link-mobile" data-es="Inicio" data-fa="صفحه اصلی">Inicio</a></li>
-        <li><a href="sobre-nosotros.html" class="translate" data-es="Sobre Nosotros" data-fa="درباره ما">Sobre Nosotros</a></li>
-        <li><a href="recursos.html" class="translate" data-es="Recursos" data-fa="منابع">Recursos</a></li>
-        <li><a href="eventos.html" class="translate" data-es="Eventos" data-fa="رویدادها">Eventos</a></li>
-        <li><a href="comunidad.html" class="translate" data-es="Comunidad" data-fa="جامعه">Comunidad</a></li>
-        <li><a href="contacto.html" class="translate" data-es="Contáctanos" data-fa="تماس با ما">Contáctanos</a></li>
-        <li><a href="blog.html" class="translate" data-es="Blog" data-fa="وبلاگ">Blog</a></li>
+        <li>
+          <a href="index.html" class="translate active-link-mobile" data-es="Inicio" data-fa="صفحه اصلی">Inicio</a>
+        </li>
+        <li>
+          <a href="sobre-nosotros.html" class="translate" data-es="Sobre Nosotros" data-fa="درباره ما">Sobre Nosotros</a>
+        </li>
+        <li>
+          <a href="recursos.html" class="translate" data-es="Recursos" data-fa="منابع">Recursos</a>
+        </li>
+        <li>
+          <a href="eventos.html" class="translate" data-es="Eventos" data-fa="رویدادها">Eventos</a>
+        </li>
+        <li>
+          <a href="comunidad.html" class="translate" data-es="Comunidad" data-fa="جامعه">Comunidad</a>
+        </li>
+        <li>
+          <a href="contacto.html" class="translate" data-es="Contáctanos" data-fa="تماس با ما">Contáctanos</a>
+        </li>
+        <li>
+          <a href="blog.html" class="translate" data-es="Blog" data-fa="وبلاگ">Blog</a>
+        </li>
       </ul>
     </nav>
     
-    <!-- HERO SECTION: Static Hero Image -->
+    <!-- HERO SECTION: Carousel (Same as Index) -->
     <section class="hero">
       <div class="hero-carousel">
         <div class="carousel-images">
-          <!-- Use a static hero image for "Sobre Nosotros" -->
-          <img src="images/hero/02.jpeg" alt="Hero Image for Sobre Nosotros" class="active" />
+          <!-- Include desired hero images; the JS will remove any undesired ones (e.g. "04.webp") -->
+          <img src="images/hero/01.jpeg" alt="Slide 1" />
+          <img src="images/hero/02.jpeg" alt="Slide 2" />
+          <img src="images/hero/03.jpeg" alt="Slide 3" />
+          <img src="images/hero/05.jpeg" alt="Slide 5" />
+          <img src="images/hero/06.jpeg" alt="Slide 6" />
+          <img src="images/hero/07.jpeg" alt="Slide 7" />
         </div>
-      </div>
-      <div class="hero-overlay">
-        <div class="pink-bg"></div>
-        <!-- Instead of a clickable link, display the page title in the overlay -->
-        <div class="hero-content">
-          <h1 class="translate" data-es="Sobre Nosotros" data-fa="درباره ما">Sobre Nosotros</h1>
+        <!-- Navigation Buttons -->
+        <button class="carousel-btn prev-btn">&#10094;</button>
+        <button class="carousel-btn next-btn">&#10095;</button>
+        <!-- HERO OVERLAY with dynamic button -->
+        <div class="hero-overlay">
+          <div class="pink-bg"></div>
+          <!-- The overlay button here links to Sobre Nosotros (can be adjusted as needed) -->
+          <a href="sobre-nosotros.html" class="hero-overlay-button btn">
+            <span class="hero-btn-text">Sobre Nosotros</span>
+          </a>
+          <div class="hero-content">
+            <h1 class="translate" data-es="Sobre Nosotros" data-fa="درباره ما">Sobre Nosotros</h1>
+          </div>
         </div>
       </div>
     </section>
@@ -68,13 +111,33 @@
       <p class="translate" data-es="Aquí encontrarás información detallada sobre quiénes somos, nuestra historia y nuestros valores." data-fa="اینجا اطلاعات دقیقی درباره‌ی ما، تاریخچه و ارزش‌هایمان پیدا می‌کنید.">
         Aquí encontrarás información detallada sobre quiénes somos, nuestra historia y nuestros valores.
       </p>
-      <a href="index.html" class="btn-primary center translate" data-es="Volver a Inicio" data-fa="بازگشت به صفحه اصلی">
+      <a href="index.html" class="btn center-link translate" data-es="Volver a Inicio" data-fa="بازگشت به صفحه اصلی">
         Volver a Inicio
       </a>
     </section>
     
-    <!-- FOOTER -->
+    <!-- EXPANDED FOOTER SECTION -->
     <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="translate" data-es="About Us" data-fa="درباره ما">About Us</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Donec dignissim, nisl vel vehicula consectetur, lectus sapien cursus odio, quis malesuada justo nibh sed orci.</p>
+        </div>
+        <div class="footer-section">
+          <h3 class="translate" data-es="Contact" data-fa="تماس">Contact</h3>
+          <p>1234 Placeholder St.<br>City, Country 00000<br>Phone: (123) 456-7890<br>Email: info@example.com</p>
+        </div>
+        <div class="footer-section">
+          <h3 class="translate" data-es="Follow Us" data-fa="ما را دنبال کنید">Follow Us</h3>
+          <p>Social icons here (placeholder)</p>
+        </div>
+      </div>
       <div class="page-break"></div>
-      <p class="translate" data-es="© 2025 Comunidad Iraní en España" data-fa="© 2025 جامعه ایرانیان در اسپانیا">
-        © 2025 Comunidad Iraní
+      <p class="translate" data-es="© 2025 Comunidad Cultural Hispano Irani" data-fa="© 2025 جامعه فرهنگی هیپانوی ایرانی">
+        © 2025 Comunidad Cultural Hispano Irani
+      </p>
+    </footer>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
