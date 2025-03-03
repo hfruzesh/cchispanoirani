@@ -15,15 +15,10 @@
     <!-- HEADER -->
     <header>
       <div class="language-switcher">
-        <!-- Unified button style for language switching -->
-        <button id="lang-switch" class="btn" data-lang="es">Switch to Farsi</button>
+        <button id="lang-switch" class="btn">Switch to Farsi</button>
       </div>
-      <!-- Desktop Navigation -->
       <nav class="desktop-nav">
         <ul>
-          <li>
-            <a href="index.html" class="translate active-link" data-es="Inicio" data-fa="صفحه اصلی">Inicio</a>
-          </li>
           <li>
             <a href="sobre-nosotros.html" class="translate" data-es="Sobre Nosotros" data-fa="درباره ما">Sobre Nosotros</a>
           </li>
@@ -44,20 +39,14 @@
           </li>
         </ul>
       </nav>
-      <!-- Hamburger Menu for Mobile -->
-      <div class="hamburger" id="hamburger">
+      <div id="hamburger" class="hamburger">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
       </div>
     </header>
-    
-    <!-- Mobile Navigation (Collapsible) -->
-    <nav class="mobile-nav" id="mobile-nav">
+    <div id="mobile-nav" class="mobile-nav">
       <ul>
-        <li>
-          <a href="index.html" class="translate active-link-mobile" data-es="Inicio" data-fa="صفحه اصلی">Inicio</a>
-        </li>
         <li>
           <a href="sobre-nosotros.html" class="translate" data-es="Sobre Nosotros" data-fa="درباره ما">Sobre Nosotros</a>
         </li>
@@ -77,133 +66,96 @@
           <a href="blog.html" class="translate" data-es="Blog" data-fa="وبلاگ">Blog</a>
         </li>
       </ul>
-    </nav>
-    
-    <!-- HERO SECTION: Carousel -->
+    </div>
+
+    <!-- HERO SECTION -->
     <section class="hero">
       <div class="hero-carousel">
         <div class="carousel-images">
-          <!-- Carousel Images (removed 04.webp) -->
-          <img src="images/hero/01.jpeg" alt="Hero Image 1" />
-          <img src="images/hero/02.jpeg" alt="Hero Image 2" />
-          <img src="images/hero/03.jpeg" alt="Hero Image 3" />
-          <img src="images/hero/05.jpeg" alt="Hero Image 5" />
-          <img src="images/hero/06.jpeg" alt="Hero Image 6" />
-          <img src="images/hero/07.jpeg" alt="Hero Image 7" />
+          <!-- Carousel images -->
+          <img src="images/hero/01.jpeg" alt="Slide 1" />
+          <img src="images/hero/02.jpeg" alt="Slide 2" />
+          <img src="images/hero/03.jpeg" alt="Slide 3" />
+          <img src="images/hero/05.jpeg" alt="Slide 5" />
+          <img src="images/hero/06.jpeg" alt="Slide 6" />
+          <img src="images/hero/07.jpeg" alt="Slide 7" />
         </div>
-        <button class="carousel-btn prev-btn">&lt;</button>
-        <button class="carousel-btn next-btn">&gt;</button>
-      </div>
-      <div class="hero-overlay">
-        <div class="pink-bg"></div>
-        <!-- Dynamic overlay button: Each hero slide updates the link/text -->
-        <a href="sobre-nosotros.html" class="hero-overlay-button btn">
-          <span class="hero-btn-text"></span>
-        </a>
-        <div class="hero-content">
-          <h1 class="translate hero-title-shadow"
-              data-es="Bienvenido a la Comunidad Cultural Hispano Irani"
-              data-fa="به جامعه فرهنگی هیپانوی ایرانی خوش آمدید">
-            Bienvenido a la Comunidad Cultural Hispano Irani
-          </h1>
+        <!-- Navigation Buttons -->
+        <button class="carousel-btn prev-btn">&#10094;</button>
+        <button class="carousel-btn next-btn">&#10095;</button>
+        <!-- Hero Overlay -->
+        <div class="hero-overlay">
+          <div class="pink-bg"></div>
+          <a href="#" class="hero-overlay-button btn">
+            <span class="hero-btn-text">Placeholder</span>
+          </a>
+          <div class="hero-content">
+            <h1 class="translate" data-es="Bienvenido a la Comunidad Cultural Hispano Irani" data-fa="به جامعه فرهنگی هیپانوی ایرانی خوش آمدید">
+              Bienvenido a la Comunidad Cultural Hispano Irani
+            </h1>
+          </div>
         </div>
       </div>
     </section>
-    
-    <!-- WRAPPER FOR NON-HERO CONTENT -->
+
+    <!-- NON-HERO CONTENT -->
     <div class="non-hero">
-      <!-- PAGE BREAK -->
       <div class="page-break"></div>
-      
-      <!-- POEM SECTION 1 (Hafez) -->
+      <!-- POETRY SECTIONS -->
       <section class="poem-section">
-        <div class="page-break"></div>
-        <blockquote class="translate"
-                    data-es="“No te aflijas por lo que pasó ayer, pues el destino no se puede cambiar. Bebe vino y canta, pues el mundo no durará.” – Hafez"
-                    data-fa="«برای آنچه دیروز رخ داد نگران نباشید، چون سرنوشت قابل تغییر نیست. شراب بنوشید و آواز بخوانید، چون دنیا دوام ندارد.» – حافظ">
+        <blockquote class="translate" data-es="“No te aflijas por lo que pasó ayer, pues el destino no se puede cambiar. Bebe vino y canta, pues el mundo no durará.” – Hafez" data-fa="«برای آنچه دیروز رخ داد نگران نباشید، چون سرنوشت قابل تغییر نیست. شراب بنوشید و آواز بخوانید، چون دنیا دوام ندارد.» – حافظ">
           “No te aflijas por lo que pasó ayer, pues el destino no se puede cambiar. Bebe vino y canta, pues el mundo no durará.” – Hafez
         </blockquote>
-        <div class="page-break"></div>
       </section>
-      
-      <!-- FEATURED EVENT SECTION with side pattern -->
+      <section class="poem-section">
+        <blockquote class="translate" data-es="“Más allá de las ideas del bien y del mal existe un campo donde nos encontraremos; allí, el alma descansa en paz y el universo susurra secretos.” – Rumi" data-fa="«فراتر از ایده‌های خوب و بد، جایی وجود دارد که در آن با هم ملاقات خواهیم کرد؛ جایی که جان در آرامش است و جهان اسرار خود را نجوا می‌کند.» – رومی">
+          “Más allá de las ideas del bien y del mal existe un campo donde nos encontraremos; allí, el alma descansa en paz y el universo susurra secretos.” – Rumi
+        </blockquote>
+      </section>
+      <section class="poem-section">
+        <blockquote class="translate" data-es="“Haz el bien y deja un legado, porque el tiempo es efímero y la memoria, eterna.” – Ferdowsi" data-fa="«خیری انجام دهید و یادگاری به جا بگذارید، چون زمان زودگذر است و یاد، جاودان.» – فردوسی">
+          “Haz el bien y deja un legado, porque el tiempo es efímero y la memoria, eterna.” – Ferdowsi
+        </blockquote>
+      </section>
+
+      <!-- FEATURED EVENT SECTION -->
       <section class="featured-event">
         <h2 class="center translate" data-es="Evento Destacado" data-fa="رویداد ویژه">Evento Destacado</h2>
         <div class="featured-event-container">
-          <img src="images/event/01.jpg" alt="Featured Event" class="event-image" />
+          <img src="images/event/02.png" alt="Evento Destacado" class="event-image" />
         </div>
-        <p class="translate"
-           data-es="Únete a nuestro próximo evento cultural para celebrar la herencia iraní en España."
-           data-fa="به رویداد فرهنگی بعدی ما بپیوندید تا میراث ایرانی در اسپانیا را جشن بگیرید.">
+        <p class="translate" data-es="Únete a nuestro próximo evento cultural para celebrar la herencia iraní en España." data-fa="به رویداد فرهنگی بعدی ما بپیوندید تا میراث ایرانی در اسپانیا را جشن بگیرید.">
           Únete a nuestro próximo evento cultural para celebrar la herencia iraní en España.
         </p>
       </section>
-      
-      <!-- POEM SECTION 2 (Rumi) -->
-      <section class="poem-section">
-        <div class="page-break"></div>
-        <blockquote class="translate"
-                    data-es="“Más allá de las ideas del bien y del mal existe un campo donde nos encontraremos; allí, el alma descansa en paz y el universo susurra secretos.” – Rumi"
-                    data-fa="«فراتر از ایده‌های خوب و بد، جایی وجود دارد که در آن با هم ملاقات خواهیم کرد؛ جایی که جان در آرامش است و جهان اسرار خود را نجوا می‌کند.» – رومی">
-          “Más allá de las ideas del bien y del mal existe un campo donde nos encontraremos; allí, el alma descansa en paz y el universo susurra secretos.” – Rumi
-        </blockquote>
-        <div class="page-break"></div>
-      </section>
-      
-      <!-- NUESTRA MISIÓN SECTION -->
-      <section class="mission">
-        <h2 class="center translate" data-es="Nuestra Misión" data-fa="ماموریت ما">Nuestra Misión</h2>
-        <p class="translate"
-           data-es="Preservar nuestras tradiciones y construir puentes de entendimiento entre culturas. Nuestro objetivo es honrar nuestras raíces y fomentar la colaboración intercultural."
-           data-fa="حفظ سنت‌های ما و ساختن پل‌های تفاهم بین فرهنگ‌ها. هدف ما پاسداشت ریشه‌هایمان و تشویق همکاری‌های بین فرهنگی است.">
-          Preservar nuestras tradiciones y construir puentes de entendimiento entre culturas. Nuestro objetivo es honrar nuestras raíces y fomentar la colaboración intercultural.
-        </p>
-      </section>
-      
-      <!-- POEM SECTION 3 (Ferdowsi) -->
-      <section class="poem-section">
-        <div class="page-break"></div>
-        <blockquote class="translate"
-                    data-es="“Haz el bien y deja un legado, porque el tiempo es efímero y la memoria, eterna.” – Ferdowsi"
-                    data-fa="«خیری انجام دهید و یادگاری به جا بگذارید، چون زمان زودگذر است و یاد، جاودان.» – فردوسی">
-          “Haz el bien y deja un legado, porque el tiempo es efímero y la memoria, eterna.” – Ferdowsi
-        </blockquote>
-        <div class="page-break"></div>
-      </section>
-      
+
       <!-- PRÓXIMOS EVENTOS SECTION -->
       <section class="events">
-        <h2 class="center translate" data-es="Próximos Eventos" data-fa="رویدادهای آتی">Próximos Eventos</h2>
+        <h2 class="center translate" data-es="Próximos Eventos" data-fa="رویدادهای آینده">Próximos Eventos</h2>
         <ul>
-          <li class="translate"
-              data-es="<strong>Nowruz:</strong> Celebración del Año Nuevo Persa – 20 de marzo de 2025."
-              data-fa="<strong>نوروز:</strong> جشن سال نو پارسی - 20 de marzo de 2025.">
+          <li class="translate" data-es="<strong>Nowruz:</strong> Celebración del Año Nuevo Persa – 20 de marzo de 2025." data-fa="<strong>نوروز:</strong> جشن سال نو پارسی - 20 de marzo de 2025.">
             <strong>Nowruz:</strong> Celebración del Año Nuevo Persa – 20 de marzo de 2025.
           </li>
-          <li class="translate"
-              data-es="<strong>Cine Persa:</strong> Proyección de películas iraníes en Madrid – 15 de abril de 2025."
-              data-fa="<strong>سینمای پارسی:</strong> اکران فیلم‌های ایرانی در مادرد - 15 de abril de 2025.">
+          <li class="translate" data-es="<strong>Cine Persa:</strong> Proyección de películas iraníes en Madrid – 15 de abril de 2025." data-fa="<strong>سینمای پارسی:</strong> اکران فیلم‌های ایرانی در مادرد - 15 de abril de 2025.">
             <strong>Cine Persa:</strong> Proyección de películas iraníes en Madrid – 15 de abril de 2025.
           </li>
-          <li class="translate"
-              data-es="<strong>Conferencia de Poesía:</strong> Homenaje a la poesía persa – 25 de mayo de 2025."
-              data-fa="<strong>کنفرانس شعر:</strong> تجلیل از شعر پارسی - 25 de mayo de 2025.">
+          <li class="translate" data-es="<strong>Conferencia de Poesía:</strong> Homenaje a la poesía persa – 25 de mayo de 2025." data-fa="<strong>کنفرانس شعر:</strong> تجلیل از شعر پارسی - 25 de mayo de 2025.">
             <strong>Conferencia de Poesía:</strong> Homenaje a la poesía persa – 25 de mayo de 2025.
           </li>
         </ul>
       </section>
-      
-      <!-- CALL-TO-ACTION SECTION with unified button style -->
+
+      <!-- CALL-TO-ACTION SECTION -->
       <section class="call-to-action">
         <h2 class="center translate" data-es="Únete a Nuestra Comunidad" data-fa="به جامعه ما بپیوندید">Únete a Nuestra Comunidad</h2>
-        <p class="translate"
-           data-es="¿Quieres formar parte de nuestra comunidad? Contáctanos para obtener más información y participar en nuestros eventos."
-           data-fa="آیا می‌خواهید جزئی از جامعه ما شوید؟ با ما تماس بگیرید تا اطلاعات بیشتری کسب کرده و در رویدادهای ما شرکت کنید.">
+        <p class="translate" data-es="¿Quieres formar parte de nuestra comunidad? Contáctanos para obtener más información y participar en nuestros eventos." data-fa="آیا می‌خواهید جزئی از جامعه ما شوید؟ با ما تماس بگیرید تا اطلاعات بیشتری کسب کرده و در رویدادهای ما شرکت کنید.">
           ¿Quieres formar parte de nuestra comunidad? Contáctanos para obtener más información y participar en nuestros eventos.
         </p>
-        <a href="contacto.html" class="btn center-link">Contáctanos</a>
+        <a href="contacto.html" class="btn center-link translate" data-es="Contáctanos" data-fa="تماس با ما">
+          Contáctanos
+        </a>
       </section>
-      
+
       <!-- EXPANDED FOOTER SECTION -->
       <footer>
         <div class="footer-content">
@@ -221,10 +173,13 @@
           </div>
         </div>
         <div class="page-break"></div>
-        <p class="translate" data-es="© 2025 Comunidad Cultural Hispano Irani" data-fa="© 2025 جامعه فرهنگی هیپانوی ایرانی">© 2025 Comunidad Cultural Hispano Irani</p>
+        <p class="translate" data-es="© 2025 Comunidad Cultural Hispano Irani" data-fa="© 2025 جامعه فرهنگی هیپانوی ایرانی">
+          © 2025 Comunidad Cultural Hispano Irani
+        </p>
       </footer>
-    </div> <!-- End .non-hero -->
-    
+      <div class="page-break"></div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
