@@ -9,12 +9,34 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Enlarge and center the hero title for Comunidad */
+      .hero-content h1.hero-large {
+        font-size: 6rem;
+        line-height: 1.1;
+        margin: 0;
+      }
+      .hero-overlay .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+      }
+      /* Optional: Adjust title size for portrait mode */
+      @media only screen and (max-width: 768px) and (orientation: portrait) {
+        .hero-content h1.hero-large {
+          font-size: 4rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- HEADER -->
     <header>
       <div class="language-switcher">
-         <button id="lang-switch" class="btn" data-lang="es">Switch to Farsi</button>
+        <button id="lang-switch" class="btn" data-lang="es">Switch to Farsi</button>
       </div>
       <nav class="desktop-nav">
         <ul>
@@ -42,35 +64,34 @@
         </ul>
       </nav>
       <div class="hamburger" id="hamburger">
-         <div class="bar"></div>
-         <div class="bar"></div>
-         <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
       </div>
     </header>
-    
     <nav class="mobile-nav" id="mobile-nav">
       <ul>
-          <li>
-            <a href="index.html" class="translate" data-es="Inicio" data-fa="صفحه اصلی">Inicio</a>
-          </li>
-          <li>
-            <a href="sobre-nosotros.html" class="translate" data-es="Sobre Nosotros" data-fa="درباره ما">Sobre Nosotros</a>
-          </li>
-          <li>
-            <a href="recursos.html" class="translate" data-es="Recursos" data-fa="منابع">Recursos</a>
-          </li>
-          <li>
-            <a href="eventos.html" class="translate" data-es="Eventos" data-fa="رویدادها">Eventos</a>
-          </li>
-          <li>
-            <a href="comunidad.html" class="translate active-link-mobile" data-es="Comunidad" data-fa="جامعه">Comunidad</a>
-          </li>
-          <li>
-            <a href="contacto.html" class="translate" data-es="Contáctanos" data-fa="تماس با ما">Contáctanos</a>
-          </li>
-          <li>
-            <a href="blog.html" class="translate" data-es="Blog" data-fa="وبلاگ">Blog</a>
-          </li>
+        <li>
+          <a href="index.html" class="translate" data-es="Inicio" data-fa="صفحه اصلی">Inicio</a>
+        </li>
+        <li>
+          <a href="sobre-nosotros.html" class="translate" data-es="Sobre Nosotros" data-fa="درباره ما">Sobre Nosotros</a>
+        </li>
+        <li>
+          <a href="recursos.html" class="translate" data-es="Recursos" data-fa="منابع">Recursos</a>
+        </li>
+        <li>
+          <a href="eventos.html" class="translate" data-es="Eventos" data-fa="رویدادها">Eventos</a>
+        </li>
+        <li>
+          <a href="comunidad.html" class="translate active-link-mobile" data-es="Comunidad" data-fa="جامعه">Comunidad</a>
+        </li>
+        <li>
+          <a href="contacto.html" class="translate" data-es="Contáctanos" data-fa="تماس با ما">Contáctanos</a>
+        </li>
+        <li>
+          <a href="blog.html" class="translate" data-es="Blog" data-fa="وبلاگ">Blog</a>
+        </li>
       </ul>
     </nav>
     
@@ -78,7 +99,7 @@
     <section class="hero">
       <div class="hero-carousel">
         <div class="carousel-images">
-          <!-- Include your desired hero images for Comunidad -->
+          <!-- Carousel images for Comunidad -->
           <img src="images/hero/01.jpeg" alt="Slide 1" />
           <img src="images/hero/02.jpeg" alt="Slide 2" />
           <img src="images/hero/03.jpeg" alt="Slide 3" />
@@ -86,17 +107,15 @@
           <img src="images/hero/06.jpeg" alt="Slide 6" />
           <img src="images/hero/07.jpeg" alt="Slide 7" />
         </div>
-        <!-- Navigation Buttons -->
         <button class="carousel-btn prev-btn">&#10094;</button>
         <button class="carousel-btn next-btn">&#10095;</button>
-        <!-- HERO OVERLAY with dynamic button -->
         <div class="hero-overlay">
           <div class="pink-bg"></div>
           <a href="comunidad.html" class="hero-overlay-button btn">
             <span class="hero-btn-text">Comunidad</span>
           </a>
           <div class="hero-content">
-            <h1 class="translate" data-es="Comunidad" data-fa="جامعه">Comunidad</h1>
+            <h1 class="translate hero-large" data-es="Comunidad" data-fa="جامعه">Comunidad</h1>
           </div>
         </div>
       </div>
@@ -137,6 +156,7 @@
         © 2025 Comunidad Cultural Hispano Irani
       </p>
     </footer>
+    <div class="page-break"></div>
     
     <script src="script.js"></script>
   </body>

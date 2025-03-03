@@ -9,6 +9,28 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Default hero title size */
+      .hero-content h1.hero-large {
+        font-size: 6rem;
+        line-height: 1.1;
+        margin: 0;
+      }
+      /* Reduce title size for portrait mode on mobile */
+      @media only screen and (max-width: 768px) and (orientation: portrait) {
+        .hero-content h1.hero-large {
+          font-size: 4rem;
+        }
+      }
+      .hero-overlay .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
     <!-- HEADER -->
@@ -53,7 +75,7 @@
           <a href="index.html" class="translate active-link-mobile" data-es="Inicio" data-fa="صفحه اصلی">Inicio</a>
         </li>
         <li>
-          <a href="sobre-nosotros.html" class="translate" data-es="Sobre Nosotros" data-fa="درباره ما">Sobre Nosotros</a>
+          <a href="sobre-nosotros.html" class="translate active-link-mobile" data-es="Sobre Nosotros" data-fa="درباره ما">Sobre Nosotros</a>
         </li>
         <li>
           <a href="recursos.html" class="translate" data-es="Recursos" data-fa="منابع">Recursos</a>
@@ -73,11 +95,11 @@
       </ul>
     </nav>
     
-    <!-- HERO SECTION: Carousel (Same as Index) -->
+    <!-- HERO SECTION: Carousel -->
     <section class="hero">
       <div class="hero-carousel">
         <div class="carousel-images">
-          <!-- Include desired hero images; the JS will remove any undesired ones (e.g. "04.webp") -->
+          <!-- Use carousel images similar to index -->
           <img src="images/hero/01.jpeg" alt="Slide 1" />
           <img src="images/hero/02.jpeg" alt="Slide 2" />
           <img src="images/hero/03.jpeg" alt="Slide 3" />
@@ -85,18 +107,15 @@
           <img src="images/hero/06.jpeg" alt="Slide 6" />
           <img src="images/hero/07.jpeg" alt="Slide 7" />
         </div>
-        <!-- Navigation Buttons -->
         <button class="carousel-btn prev-btn">&#10094;</button>
         <button class="carousel-btn next-btn">&#10095;</button>
-        <!-- HERO OVERLAY with dynamic button -->
         <div class="hero-overlay">
           <div class="pink-bg"></div>
-          <!-- The overlay button here links to Sobre Nosotros (can be adjusted as needed) -->
           <a href="sobre-nosotros.html" class="hero-overlay-button btn">
             <span class="hero-btn-text">Sobre Nosotros</span>
           </a>
           <div class="hero-content">
-            <h1 class="translate" data-es="Sobre Nosotros" data-fa="درباره ما">Sobre Nosotros</h1>
+            <h1 class="translate hero-large" data-es="Sobre Nosotros" data-fa="درباره ما">Sobre Nosotros</h1>
           </div>
         </div>
       </div>
@@ -137,6 +156,7 @@
         © 2025 Comunidad Cultural Hispano Irani
       </p>
     </footer>
+    <div class="page-break"></div>
     
     <script src="script.js"></script>
   </body>

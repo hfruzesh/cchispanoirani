@@ -9,6 +9,35 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <!-- Inline style adjustments for mobile padding, hero title positioning, and larger hero title text -->
+    <style>
+      /* Increase padding for the featured event text on portrait mobile */
+      @media only screen and (max-width: 768px) and (orientation: portrait) {
+        .featured-event p {
+          padding: 20px;
+          margin: 0 20px;
+        }
+      }
+      /* Center the hero title vertically over the carousel */
+      .hero-overlay .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+      }
+      /* Increase font size for the hero title on this page */
+      .hero-content h1.hero-large {
+        font-size: 5rem; /* Increased from 4rem */
+        line-height: 1.1;
+        margin: 0;
+      }
+      /* Increase font size for the featured event text */
+      .featured-event p {
+        font-size: 1.25rem;
+      }
+    </style>
   </head>
   <body>
     <!-- HEADER -->
@@ -73,7 +102,7 @@
       </ul>
     </nav>
     
-    <!-- HERO SECTION: Carousel -->
+    <!-- HERO SECTION: Carousel with enlarged title -->
     <section class="hero">
       <div class="hero-carousel">
         <div class="carousel-images">
@@ -88,17 +117,30 @@
         <!-- Navigation Buttons -->
         <button class="carousel-btn prev-btn">&#10094;</button>
         <button class="carousel-btn next-btn">&#10095;</button>
-        <!-- HERO OVERLAY with dynamic button -->
+        <!-- HERO OVERLAY with dynamic button and enlarged title -->
         <div class="hero-overlay">
           <div class="pink-bg"></div>
           <a href="eventos.html" class="hero-overlay-button btn">
             <span class="hero-btn-text">Eventos</span>
           </a>
           <div class="hero-content">
-            <h1 class="translate" data-es="Eventos" data-fa="رویدادها">Eventos</h1>
+            <h1 class="translate hero-large" data-es="Eventos" data-fa="رویدادها">Eventos</h1>
           </div>
         </div>
       </div>
+    </section>
+    
+    <!-- NEW FEATURED EVENT SECTION -->
+    <section class="featured-event">
+      <h2 class="center translate" data-es="Evento Destacado" data-fa="رویداد ویژه">Evento Destacado</h2>
+      <div class="featured-event-container">
+        <img src="images/event/02.png" alt="Evento Destacado" class="event-image" />
+      </div>
+      <p class="translate" 
+         data-es="Únete a nuestra fiesta de Charshanbe Suri el 18 de marzo de 2025, para disfrutar de diversión, comida y buena música para toda la familia."
+         data-fa="به جشن چارشنبه سوری ما در ۱۸ مارس ۲۰۲۵ بپیوندید، تا از سرگرمی، غذا و موسیقی خوب که کل خانواده از آن لذت می‌برند لذت ببرید!">
+        Únete a nuestra fiesta de Charshanbe Suri el 18 de marzo de 2025, para disfrutar de diversión, comida y buena música para toda la familia.
+      </p>
     </section>
     
     <!-- NON-HERO CONTENT -->

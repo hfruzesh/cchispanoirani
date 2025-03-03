@@ -9,6 +9,29 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Enlarge and center the hero title for Blog */
+      .hero-content h1.hero-large {
+        font-size: 6rem;
+        line-height: 1.1;
+        margin: 0;
+      }
+      /* Center hero title vertically over carousel */
+      .hero-overlay .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+      }
+      /* Adjust title size for portrait mode */
+      @media only screen and (max-width: 768px) and (orientation: portrait) {
+        .hero-content h1.hero-large {
+          font-size: 4rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- HEADER -->
@@ -47,8 +70,6 @@
         <div class="bar"></div>
       </div>
     </header>
-
-    <!-- MOBILE NAVIGATION -->
     <nav class="mobile-nav" id="mobile-nav">
       <ul>
         <li>
@@ -74,12 +95,12 @@
         </li>
       </ul>
     </nav>
-
+    
     <!-- HERO SECTION: Carousel -->
     <section class="hero">
       <div class="hero-carousel">
         <div class="carousel-images">
-          <!-- Include your desired hero images for Blog -->
+          <!-- Blog hero images -->
           <img src="images/hero/07.jpeg" alt="Slide 1" />
           <img src="images/hero/01.jpeg" alt="Slide 2" />
           <img src="images/hero/02.jpeg" alt="Slide 3" />
@@ -87,32 +108,27 @@
           <img src="images/hero/05.jpeg" alt="Slide 5" />
           <img src="images/hero/06.jpeg" alt="Slide 6" />
         </div>
-        <!-- Navigation Buttons -->
         <button class="carousel-btn prev-btn">&#10094;</button>
         <button class="carousel-btn next-btn">&#10095;</button>
-        <!-- HERO OVERLAY with dynamic button -->
         <div class="hero-overlay">
           <div class="pink-bg"></div>
           <a href="blog.html" class="hero-overlay-button btn">
             <span class="hero-btn-text">Blog</span>
           </a>
           <div class="hero-content">
-            <h1 class="translate" data-es="Blog" data-fa="وبلاگ">Blog</h1>
+            <h1 class="translate hero-large" data-es="Blog" data-fa="وبلاگ">Blog</h1>
           </div>
         </div>
       </div>
     </section>
-
+    
     <!-- NON-HERO CONTENT -->
     <div class="non-hero">
       <div class="page-break"></div>
-
       <!-- MAIN CONTENT -->
       <section class="main-content">
         <h2 class="translate" data-es="Últimas Publicaciones" data-fa="آخرین مطالب">Últimas Publicaciones</h2>
-        <p class="translate" 
-           data-es="Descubre artículos sobre cultura, historia y actualidad de la comunidad iraní en España."
-           data-fa="مقالاتی درباره فرهنگ، تاریخ و اخبار جامعه ایرانی در اسپانیا را کشف کنید.">
+        <p class="translate" data-es="Descubre artículos sobre cultura, historia y actualidad de la comunidad iraní en España." data-fa="مقالاتی درباره فرهنگ، تاریخ و اخبار جامعه ایرانی در اسپانیا را کشف کنید.">
           Descubre artículos sobre cultura, historia y actualidad de la comunidad iraní en España.
         </p>
         <div class="page-break"></div>
@@ -120,7 +136,7 @@
           Volver a Inicio
         </a>
       </section>
-
+      
       <!-- EXPANDED FOOTER SECTION -->
       <footer>
         <div class="footer-content">
@@ -144,7 +160,7 @@
       </footer>
       <div class="page-break"></div>
     </div>
-
+    
     <script src="script.js"></script>
   </body>
 </html>

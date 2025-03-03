@@ -9,6 +9,28 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Enlarge and center the hero title for Recursos */
+      .hero-content h1.hero-large {
+        font-size: 6rem;
+        line-height: 1.1;
+        margin: 0;
+      }
+      .hero-overlay .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+      }
+      /* Optionally, reduce the title size on portrait mode */
+      @media only screen and (max-width: 768px) and (orientation: portrait) {
+        .hero-content h1.hero-large {
+          font-size: 4rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- HEADER -->
@@ -47,7 +69,6 @@
         <div class="bar"></div>
       </div>
     </header>
-    
     <nav class="mobile-nav" id="mobile-nav">
       <ul>
         <li>
@@ -78,7 +99,7 @@
     <section class="hero">
       <div class="hero-carousel">
         <div class="carousel-images">
-          <!-- Include your desired hero images -->
+          <!-- Include carousel images -->
           <img src="images/hero/01.jpeg" alt="Slide 1" />
           <img src="images/hero/02.jpeg" alt="Slide 2" />
           <img src="images/hero/03.jpeg" alt="Slide 3" />
@@ -86,17 +107,15 @@
           <img src="images/hero/06.jpeg" alt="Slide 6" />
           <img src="images/hero/07.jpeg" alt="Slide 7" />
         </div>
-        <!-- Navigation Buttons -->
         <button class="carousel-btn prev-btn">&#10094;</button>
         <button class="carousel-btn next-btn">&#10095;</button>
-        <!-- HERO OVERLAY with dynamic button -->
         <div class="hero-overlay">
           <div class="pink-bg"></div>
           <a href="recursos.html" class="hero-overlay-button btn">
             <span class="hero-btn-text">Recursos</span>
           </a>
           <div class="hero-content">
-            <h1 class="translate" data-es="Recursos" data-fa="منابع">Recursos</h1>
+            <h1 class="translate hero-large" data-es="Recursos" data-fa="منابع">Recursos</h1>
           </div>
         </div>
       </div>
@@ -108,9 +127,7 @@
     <!-- MAIN CONTENT -->
     <section class="main-content">
       <h2 class="translate" data-es="Recursos Disponibles" data-fa="منابع موجود">Recursos Disponibles</h2>
-      <p class="translate" 
-         data-es="Explora recursos útiles para la comunidad iraní en España, incluyendo guías legales, culturales y educativas."
-         data-fa="منابع مفید برای جامعه ایرانی در اسپانیا را کاوش کنید، شامل راهنمایی‌های حقوقی، فرهنگی و آموزشی.">
+      <p class="translate" data-es="Explora recursos útiles para la comunidad iraní en España, incluyendo guías legales, culturales y educativas." data-fa="منابع مفید برای جامعه ایرانی در اسپانیا را کاوش کنید، شامل راهنمایی‌های حقوقی، فرهنگی و آموزشی.">
         Explora recursos útiles para la comunidad iraní en España, incluyendo guías legales, culturales y educativas.
       </p>
       <a href="index.html" class="btn center-link translate" data-es="Volver a Inicio" data-fa="بازگشت به صفحه اصلی">
@@ -139,6 +156,7 @@
         © 2025 Comunidad Cultural Hispano Irani
       </p>
     </footer>
+    <div class="page-break"></div>
     
     <script src="script.js"></script>
   </body>
