@@ -9,7 +9,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <!-- Inline style adjustments for mobile padding, hero title positioning, and larger hero title text -->
     <style>
       /* Increase padding for the featured event text on portrait mobile */
       @media only screen and (max-width: 768px) and (orientation: portrait) {
@@ -29,13 +28,22 @@
       }
       /* Increase font size for the hero title on this page */
       .hero-content h1.hero-large {
-        font-size: 5rem; /* Increased from 4rem */
+        font-size: 5rem;
         line-height: 1.1;
         margin: 0;
       }
-      /* Increase font size for the featured event text */
-      .featured-event p {
-        font-size: 1.25rem;
+      /* Adjust title size for portrait mode */
+      @media only screen and (max-width: 768px) and (orientation: portrait) {
+        .hero-content h1.hero-large {
+          font-size: 4rem;
+        }
+      }
+      /* Optional styling for the video element */
+      .featured-event-container video {
+        width: 100%;
+        max-width: 80%;
+        display: block;
+        margin: 0 auto;
       }
     </style>
   </head>
@@ -130,16 +138,21 @@
       </div>
     </section>
     
-    <!-- NEW FEATURED EVENT SECTION -->
+    <!-- FEATURED EVENT SECTION -->
     <section class="featured-event">
       <h2 class="center translate" data-es="Evento Destacado" data-fa="رویداد ویژه">Evento Destacado</h2>
       <div class="featured-event-container">
-        <img src="images/event/02.png" alt="Evento Destacado" class="event-image" />
+        <a href="eventos.html">
+          <video controls class="event-video">
+            <source src="VID-20250317-WA0001.mp4" type="video/mp4" />
+            Tu navegador no soporta el video.
+          </video>
+        </a>
       </div>
       <p class="translate" 
-         data-es="Únete a nuestra fiesta de Charshanbe Suri el 18 de marzo de 2025, para disfrutar de diversión, comida y buena música para toda la familia."
-         data-fa="به جشن چارشنبه سوری ما در ۱۸ مارس ۲۰۲۵ بپیوندید، تا از سرگرمی، غذا و موسیقی خوب که کل خانواده از آن لذت می‌برند لذت ببرید!">
-        Únete a nuestra fiesta de Charshanbe Suri el 18 de marzo de 2025, para disfrutar de diversión, comida y buena música para toda la familia.
+         data-es="Debido a la lluvia, el evento de Charshanbe Suri ha sido cancelado."
+         data-fa="به دلیل باران، رویداد چارشنبه سوری لغو شده است."
+        Únete a nuestra fiesta de Charshanbe Suri el 18 de marzo de 2025, para disfrutar de diversión, comida y buena música para toda la familia. Debido a la lluvia, el evento ha sido cancelado.
       </p>
     </section>
     
